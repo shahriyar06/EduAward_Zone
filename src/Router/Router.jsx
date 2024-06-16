@@ -3,8 +3,9 @@ import {
 } from "react-router-dom";
 import Root from "../Root/Root";
 import Error from "../Page/Error/Error";
-import Home from "../Page/Home/Home";
+import Home from './../Page/Home/Home';
 import AllScholarship from "../Page/AllScholarship/AllScholarship";
+import Login from "../Component/Login/Login";
 
 
 
@@ -15,12 +16,16 @@ const router = createBrowserRouter([
         errorElement: <Error></Error>,
         children: [
             {
-                path: '/home',
+                path: '/',
                 element: <Home></Home>
             },
             {
                 path: '/allscholarship',
                 element: <AllScholarship></AllScholarship>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
             }
         ],
     },
