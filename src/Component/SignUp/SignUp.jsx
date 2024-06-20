@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Share/SocialLogin/SocialLogin";
 import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 
 
@@ -15,6 +16,7 @@ const SignUp = () => {
     const [showpassword, setshowpassword] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signup, updateuserprofile } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate()
     const run = '/'
 
@@ -41,14 +43,24 @@ const SignUp = () => {
             .then(() => {
                 updateuserprofile(name, photo)
                     .then(() => {
-                        Swal.fire({
-                            position: "middle-center",
-                            icon: "success",
-                            title: "Sign Up Successfully.",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate(run)
+                        const userinfo = {
+                            email : email, 
+                            name: name, 
+                            photo: photo
+                        }
+                        axiosPublic.post('/users', userinfo)
+                        .then(res =>{
+                            if(res.data.insertedId){
+                                Swal.fire({
+                                    position: "middle-center",
+                                    icon: "success",
+                                    title: "Sign Up Successfully.",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate(run)
+                            }
+                        })
                     });
             });
     }

@@ -5,10 +5,10 @@ import { Outlet } from 'react-router-dom';
 const Dashboard = () => {
     return (
         <div className="flex">
-            <div>
+            <div className="">
                 <SideNavbar></SideNavbar>
             </div>
-            <div>
+            <div className="w-full">
                 <Outlet></Outlet>
             </div>
         </div>

@@ -4,24 +4,43 @@ import { FcGoogle } from "react-icons/fc";
 import { ImGithub } from "react-icons/im";
 import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
+import Swal from "sweetalert2";
 
 
 const SocialLogin = () => {
 
     const { googlelogin, githublogin } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate()
     const location = useLocation()
     const run = location?.state || '/'
 
-    const handlesociallogin = (socialProvider) =>{
+    const handlesociallogin = (socialProvider) => {
         socialProvider()
-        .then(result => {
-            if(result.user){
-                navigate(run)
-            }
-        })
-        .catch(() => {
-        });
+            .then(result => {
+                if (result.user) {
+                    const userinfo = {
+                        email: result.user?.email,
+                        name: result.user?.displayName
+                    }
+                    axiosPublic.post('/users', userinfo)
+                        .then(res => {
+                            if (res.data.insertedId) {
+                                Swal.fire({
+                                    position: "middle-center",
+                                    icon: "success",
+                                    title: "Sign Up Successfully.",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate(run)
+                            }
+                        })
+                }
+            })
+            .catch(() => {
+            });
     }
 
     return (
