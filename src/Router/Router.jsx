@@ -10,6 +10,8 @@ import SignUp from "../Component/SignUp/SignUp";
 import Dashboard from "../Dashboard/Dashboard";
 import AdminProfile from "../Page/AdminProfile/AdminProfile";
 import PrivateRoute from "../Page/PrivateRoute/PrivateRoute";
+import AddScholarship from "../Page/AddScholarship/AddScholarship";
+import AllUser from './../Page/AllUser/AllUser';
 
 
 
@@ -42,8 +44,16 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
-                path: '/dashboard/adminprofile',
+                path: '/dashboard',
                 element: <AdminProfile></AdminProfile>
+            },
+            {
+                path: '/dashboard/addscholarship',
+                element: <AddScholarship></AddScholarship>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUser></AllUser>
             }
         ]
 
