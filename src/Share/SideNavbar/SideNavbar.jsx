@@ -3,9 +3,10 @@ import { IoHome } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 
 import { Link } from "react-router-dom";
+import useAdmin from "../../Hook/useAdmin";
 
 const SideNavbar = () => {
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     const sidenavbar = <>{
         isAdmin ?

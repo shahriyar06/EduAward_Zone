@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import { createContext, useEffect, useState } from "react";
 import auth from './../../Firebase/firebase.config';
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/web-extension";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 
 // social auth provider
@@ -14,6 +15,7 @@ const FirebaseProvider = ({children}) => {
 
     const [user, setuser] = useState(null)
     const [ loading, setloading ] = useState(true)
+    const axiosPublic = useAxiosPublic();
 
     // Create New User
     const signup = (email, password) =>{
@@ -60,10 +62,23 @@ const FirebaseProvider = ({children}) => {
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(auth, (user) => {
               setuser(user)
+              if(user){
+                const userinfo = {email: user.email}
+                axiosPublic.post('jwt', userinfo)
+                .then(res =>{
+                    if(res.data.token){
+                        localStorage.setItem('access-token', res.data.token);
+                    }
+                })
+              }
+              else{
+                // TODO : Remove token
+                localStorage.removeItem('access-token');
+              }
               setloading(false)
           });
           return () => unsubscribe();
-    },[user])
+    },[user, axiosPublic])
 
 
     const alluser = {

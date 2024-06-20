@@ -22,8 +22,7 @@ const SignUp = () => {
 
 
     const onSubmit = (data) => {
-        const { email, password, name, photo } = data; 
-        console.log(email, password, name, photo)
+        const { email, password, name, photo } = data;
         setrestriction('')
         if (password.length < 6) {
             setrestriction('At least 6 characters')
