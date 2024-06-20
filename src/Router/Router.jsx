@@ -7,6 +7,9 @@ import Home from './../Page/Home/Home';
 import AllScholarship from "../Page/AllScholarship/AllScholarship";
 import Login from "../Component/Login/Login";
 import SignUp from "../Component/SignUp/SignUp";
+import Dashboard from "../Dashboard/Dashboard";
+import AdminProfile from "../Page/AdminProfile/AdminProfile";
+import PrivateRoute from "../Page/PrivateRoute/PrivateRoute";
 
 
 
@@ -34,6 +37,17 @@ const router = createBrowserRouter([
             }
         ],
     },
+    {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard/adminprofile',
+                element: <AdminProfile></AdminProfile>
+            }
+        ]
+
+    }
 ]);
 
 export default router;
