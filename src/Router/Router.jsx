@@ -6,6 +6,7 @@ import Error from "../Page/Error/Error";
 import Home from './../Page/Home/Home';
 import AllScholarship from "../Page/AllScholarship/AllScholarship";
 import Login from "../Component/Login/Login";
+import SignUp from "../Component/SignUp/SignUp";
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             }
         ],
     },

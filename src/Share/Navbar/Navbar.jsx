@@ -2,8 +2,9 @@ import { Link, NavLink } from "react-router-dom";
 
 const MenuLink = () => {
     const MenuLink = <>
-        <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#34ffdd] border text-[#34ffdd]" : "text-[#131313]"}>Home</NavLink></li>
-        <li><NavLink to='/allscholarship' className={({ isActive }) => isActive ? "border-[#34ffdd] border text-[#34ffdd]" : "text-[#131313]"}>All Scholarship</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Home</NavLink></li>
+        <li><NavLink to='/allscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>All Scholarship</NavLink></li>
+        <li><NavLink to='/dashboard' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Dashboard</NavLink></li>
     </>
     return (
         <div>
@@ -17,7 +18,7 @@ const MenuLink = () => {
                             {MenuLink}
                         </ul>
                     </div>
-                    <a className="lg:text-5xl md:text-3xl text-lg font-extrabold text-[#ad9773]">EduAward Zone</a>
+                    <a className="lg:text-5xl md:text-3xl text-lg font-extrabold text-[#CEE986]">EduAward Zone</a>
                     {/* <img src="https://i.ibb.co/YRvYjqY/kajer-Khoj.png" className="w-32 md:w-full" alt="" /> */}
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -29,7 +30,8 @@ const MenuLink = () => {
                     <div className="ml-6">
                         {/* toggle hobe */}
                     </div>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/login' className="mr-3">Sign In</Link>
+                    <Link to='/signup'>Sign Up</Link>
                     {/* {
                         user ?
                             <div className=" relative">

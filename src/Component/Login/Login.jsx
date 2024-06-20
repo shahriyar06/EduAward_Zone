@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import signinimg from '../../../public/Image/login.jpg';
+import SocialLogin from "../../Share/SocialLogin/SocialLogin";
 // import Swal from "sweetalert2";
 
 
@@ -42,15 +43,15 @@ const Login = () => {
     return (
         <div>
             <Helmet>
-                <title>EduAward Zone | Log in</title>
+                <title>EduAward Zone | Sign In</title>
             </Helmet>
             <div className="hero min-h-screen" style={{ backgroundImage: "url('https://i.ibb.co/gPj35Ts/signin.jpg')" }}>
                 <div className="hero-overlay bg-opacity-60"></div>
-                <div className="grid grid-rows lg:grid-cols-9 md:grid-cols-8 w-10/12 lg:w-8/12 mx-auto my-14 md:my-28 items-center md:gap-4 lg:gap-8 p-3 bg-white">
+                <div className="grid grid-rows lg:grid-cols-9 md:grid-cols-8 w-10/12 lg:w-8/12 mx-auto my-14 md:my-28 items-center md:gap-4 lg:gap-8 p-3 bg-[#ffffffc3]">
                     <div className="lg:col-span-5 md:col-span-4">
                         <img src={signinimg} alt="login image" className="w-full h-full md:h-[600px]" />
                     </div>
-                    <div className="md:col-span-4">
+                    <div className="md:col-span-4 mr-2">
                         <form className="">
                             {/* <form onSubmit={handleSubmit(onSubmit)} className="card-body"> */}
                             <div className="text-center mb-3">
@@ -95,9 +96,9 @@ const Login = () => {
                                 </div>
                             </div>
                         </form>
-                        {/* <div className="mx-8 mb-5">
-                        <Sociallogin></Sociallogin>
-                    </div> */}
+                        <div className="mx-8 mb-5">
+                            <SocialLogin></SocialLogin>
+                        </div>
                     </div>
                 </div>
             </div>
