@@ -1,6 +1,27 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Page/FirebaseProvider/FirebaseProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const MenuLink = () => {
+
+    const { signout, user } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const location = useLocation()
+    const run = location?.state || '/'
+
+    const handlesociallogout = logoutProvider => {
+        logoutProvider()
+            .then(result => {
+                if (result.user) {
+                    toast("Success register!");
+                    navigate(run)
+                }
+            })
+    }
+
+
     const MenuLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Home</NavLink></li>
         <li><NavLink to='/allscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>All Scholarship</NavLink></li>
@@ -30,9 +51,7 @@ const MenuLink = () => {
                     <div className="ml-6">
                         {/* toggle hobe */}
                     </div>
-                    <Link to='/login' className="mr-3">Sign In</Link>
-                    <Link to='/signup'>Sign Up</Link>
-                    {/* {
+                    {
                         user ?
                             <div className=" relative">
                                 <details className="dropdown dropdown-end">
@@ -42,27 +61,19 @@ const MenuLink = () => {
                                         </div>
                                     </summary>
                                     <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-32  md:text-lg absolute z-10">
-                                        <li className="hover:text-[#34ffdd]"><Link to={'/profile'}>Profile</Link></li>
-                                        <li className="hover:text-[#34ffdd]" onClick={() => handlesociallogout(signout)}><Link>Logout</Link></li>
+                                        <li className="hover:text-[#D2093C]"><Link to={'/profile'}>Profile</Link></li>
+                                        <li className="hover:text-[#D2093C]" onClick={() => handlesociallogout(signout)}><Link>Sign Out</Link></li>
                                     </ul>
+                                    <ToastContainer />
                                 </details>
-                                
+
                             </div>
                             :
                             <div className="relative">
-                                <details className="dropdown">
-                                    <summary className="m-1 btn bg-transparent border-transparent hover:bg-transparent hover:border-transparent">
-                                        <div className="p-2 bg-[#34ffdd] border-2 rounded-full tooltip" data-tip="Login">
-                                            <BsPerson className="text-3xl text-[#FFFFFF]" />
-                                        </div>
-                                    </summary>
-                                    <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-32 lg:text-lg absolute z-10">
-                                        <li><Link to='/login' className=" hover:text-[#34ffdd]">Log In</Link></li>
-                                        <li><Link to='/register' className="hover:text-[#34ffdd]">Register</Link></li>
-                                    </ul>
-                                </details>
+                                <Link to='/login' className="mr-3">Sign In</Link>
+                                <Link to='/signup'>Sign Up</Link>
                             </div>
-                    } */}
+                    }
                 </div>
             </div>
 
