@@ -12,6 +12,7 @@ import AdminProfile from "../Page/AdminProfile/AdminProfile";
 import PrivateRoute from "../Page/PrivateRoute/PrivateRoute";
 import AddScholarship from "../Page/AddScholarship/AddScholarship";
 import AllUser from './../Page/AllUser/AllUser';
+import AdminRoute from "../Page/AdminRoute/AdminRoute";
 
 
 
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             }
         ]
 

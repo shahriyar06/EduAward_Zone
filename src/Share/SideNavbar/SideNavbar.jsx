@@ -4,9 +4,11 @@ import { CgProfile } from "react-icons/cg";
 
 import { Link } from "react-router-dom";
 import useAdmin from "../../Hook/useAdmin";
+import useModerator from "../../Hook/useModerator";
 
 const SideNavbar = () => {
     const [isAdmin] = useAdmin();
+    const [isModerator] = useModerator();
 
     const sidenavbar = <>{
         isAdmin ?
@@ -19,10 +21,19 @@ const SideNavbar = () => {
                 <li><Link>Manage Review</Link></li>
             </> :
             <>
-                <li><Link to='/dashboard' className="items-center"><CgProfile className="text-xl" />My Profile</Link></li>
-                <li><Link>My Scholarship</Link></li>
-                <li><Link>My Review</Link></li>
+                {
+                    isModerator ?
+                        <>
+                            <li><Link>All Reviews</Link></li>
+                        </> :
+                        <>
+                            <li><Link to='/dashboard' className="items-center"><CgProfile className="text-xl" />My Profile</Link></li>
+                            <li><Link>My Scholarship</Link></li>
+                            <li><Link>My Review</Link></li>
+                        </>
+                }
             </>
+
     }
 
         <div className="divider"></div>
