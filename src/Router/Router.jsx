@@ -13,6 +13,7 @@ import PrivateRoute from "../Page/PrivateRoute/PrivateRoute";
 import AddScholarship from "../Page/AddScholarship/AddScholarship";
 import AllUser from './../Page/AllUser/AllUser';
 import AdminRoute from "../Page/AdminRoute/AdminRoute";
+import ModeratorProfile from "../Page/ModeratorProfile/ModeratorProfile";
 
 
 
@@ -41,20 +42,26 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/dashboard",
+        path: "dashboard",
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+            // Admin route
             {
-                path: '/dashboard',
+                path: 'adminprofile',
                 element: <AdminProfile></AdminProfile>
             },
             {
-                path: '/dashboard/addscholarship',
+                path: 'addscholarship',
                 element: <AddScholarship></AddScholarship>
             },
             {
-                path: '/dashboard/allusers',
+                path: 'allusers',
                 element: <AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+            // Moderator route
+            {
+                path: 'moderatorprofile',
+                element: <ModeratorProfile></ModeratorProfile>
             }
         ]
 
