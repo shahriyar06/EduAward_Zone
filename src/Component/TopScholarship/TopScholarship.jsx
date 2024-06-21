@@ -1,14 +1,12 @@
-import { Helmet } from "react-helmet-async";
-import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { IoCalendarNumberOutline } from "react-icons/io5";
-import { IoMdStarOutline } from "react-icons/io";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
-import { useState } from "react";
+import { IoMdStarOutline } from "react-icons/io";
+import { IoCalendarNumberOutline } from "react-icons/io5";
+import useAxiosSecure from "../../Hook/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
-const AllScholarship = () => {
-
+const TopScholarship = () => {
     const axiosSecure = useAxiosSecure();
     const { data: scholarships = [] } = useQuery({
         queryKey: ['scholarships'],
@@ -17,27 +15,28 @@ const AllScholarship = () => {
             return res.data;
         }
     });
-    const [searchQuery, setSearchQuery] = useState("");
 
-    const filteredScholar = scholarships.filter(scholar => {
-        return scholar.scholarshipname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        scholar.universityname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        scholar.degree.toLowerCase().includes(searchQuery.toLowerCase())
+    const sortedScholarships = scholarships.sort((a, b) => {
+        // Sort by application fees (ascending) and post date (descending)
+        if (a.applicationfees !== b.applicationfees) {
+            return a.applicationfees - b.applicationfees;
+        } else {
+            return new Date(b.ScholarshipPostDate) - new Date(a.ScholarshipPostDate);
+        }
     });
 
-    return (
-        <div className="my-10">
-            <Helmet>
-                <title>EduAward Zone | All Scholarship</title>
-            </Helmet>
-            <div className='lg:w-6/12 w-11/12 mx-auto my-6 relative'>
-                <input type="text" placeholder="Search scholarship name, University name or Degree" className="rounded-full h-14 pl-6 text-lg w-full text-[#080808] border border-[#947351]" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+    const topScholarships = sortedScholarships.slice(0, 6);
 
-                <button className="btn rounded-r-full h-14 md:w-36 w-24 btn-outline text-[#947351] hover:text-[#FFFFFF] hover:bg-[#947351] hover:border-[#947351] text-xl absolute right-0">Search</button>
+    return (
+        <div className="mb-10">
+            <div className="text-center mt-5">
+                <div className="divider"></div>
+                <h1 className="text-3xl md:text-5xl font-semibold">Top Scholarship</h1>
+                <div className="divider"></div>
             </div>
             <div className="grid grid-col-1 md:grid-col-2 lg:grid-cols-3 gap-6 lg:w-10/12 mx-auto">
                 {
-                    filteredScholar.map(scolar => <div className="card w-96 bg-base-100 shadow-xl" key={scolar._id}>
+                    topScholarships.map(scolar => <div className="card w-96 bg-base-100 shadow-xl" key={scolar._id}>
                         <figure className="p-5">
                             <img src={scolar.universityimage} alt="Shoes" className="rounded-xl w-full h-52" />
                         </figure>
@@ -51,7 +50,6 @@ const AllScholarship = () => {
                             <h1 className="text-lg flex items-center gap-2"><FaMoneyBill1Wave className="size-6" /> Application Fees: {scolar.applicationfees}</h1>
                             <div className="flex justify-between text-lg">
                                 <h1 className="flex items-center gap-2"><IoCalendarNumberOutline className="size-6" /> {scolar.ApplicationDeadline.slice(0, 10)}</h1>
-                                {/* <h1>{scolar.universityname}</h1> */}
                                 <h1 className="flex items-center gap-2"><IoMdStarOutline className="size-7" />Rating Average</h1>
                             </div>
                             <div className="card-actions">
@@ -62,9 +60,15 @@ const AllScholarship = () => {
                 }
 
             </div>
-
+            <div className="text-center mt-5">
+                {scholarships.length > 6 && (
+                    <Link to="/allscholarship" className="btn btn-primary text-lg">
+                        All Scholarships
+                    </Link>
+                )}
+            </div>
         </div>
     );
 };
 
-export default AllScholarship;
+export default TopScholarship;
