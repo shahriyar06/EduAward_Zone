@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { FaTimesCircle, FaPen } from "react-icons/fa";
 import { BiSolidDetail } from "react-icons/bi";
+import Swal from "sweetalert2";
 
 
 const ManageScholarship = () => {
@@ -14,6 +15,33 @@ const ManageScholarship = () => {
             return res.data;
         }
     });
+
+    // Scholarship Delete
+    const handleDelete = (scholar) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/scholarships/${scholar._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: `${scholar.scholarshipname} has been deleted.`,
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                    });
+            }
+        });
+    };
 
     return (
         <div>
@@ -51,12 +79,10 @@ const ManageScholarship = () => {
                                 <th>{scholar.applicationfees}</th>
                                 <th><button className="btn border-[#4F8EB6] text-[#FFFFFF] bg-[#4F8EB6] hover:bg-[#FFFFFF] hover:text-[#4F8EB6]"><BiSolidDetail className="size-8"/></button></th>
                                 <th><button className="btn btn-outline btn-accent"><FaPen className="size-6"/></button></th>
-                                <th><button className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th>
+                                <th><button onClick={() => handleDelete(scholar)}  className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th>
                             </tr>
                                 )
                             }
-                            {/* row 2 */}
-                            
                         </tbody>
                     </table>
                 </div>
