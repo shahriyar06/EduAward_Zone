@@ -14,6 +14,9 @@ import AddScholarship from "../Page/AddScholarship/AddScholarship";
 import AllUser from './../Page/AllUser/AllUser';
 import AdminRoute from "../Page/AdminRoute/AdminRoute";
 import ModeratorProfile from "../Page/ModeratorProfile/ModeratorProfile";
+import ManageScholarship from "../Page/ManageScholarship/ManageScholarship";
+import ManageApplication from './../Page/ManageApplication/ManageApplication';
+import ManageReview from "../Page/ManageReview/ManageReview";
 
 
 
@@ -57,6 +60,18 @@ const router = createBrowserRouter([
             {
                 path: 'allusers',
                 element: <AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+            {
+                path: 'managesholarship',
+                element: <ManageScholarship></ManageScholarship>
+            },
+            {
+                path: 'manageapplication',
+                element: <ManageApplication></ManageApplication>
+            },
+            {
+                path: 'managereview',
+                element: <ManageReview></ManageReview>
             },
             // Moderator route
             {
