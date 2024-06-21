@@ -15,12 +15,12 @@ const SideNavbar = () => {
     const sidenavbar = <>{
         isAdmin ?
             <>
-                <li><NavLink to='/dashboard/adminprofile' className="items-center"><CgProfile className="text-xl" />Admin Profile</NavLink></li>
-                <li><NavLink to='/dashboard/addscholarship'>Add Scholarship</NavLink></li>
-                <li><NavLink to='/dashboard/managesholarship'>Manage Scholarship</NavLink></li>
-                <li><NavLink to='/dashboard/manageapplication'>Manage Applied Application</NavLink></li>
-                <li><NavLink to='/dashboard/allusers'>Manage Users</NavLink></li>
-                <li><NavLink to='/dashboard/managereview'>Manage Review</NavLink></li>
+                <li><NavLink to='/dashboard/adminprofile' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}><CgProfile className="text-xl" />Admin Profile</NavLink></li>
+                <li><NavLink to='/dashboard/addscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Add Scholarship</NavLink></li>
+                <li><NavLink to='/dashboard/managesholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Scholarship</NavLink></li>
+                <li><NavLink to='/dashboard/manageapplication'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Applied Application</NavLink></li>
+                <li><NavLink to='/dashboard/allusers' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Users</NavLink></li>
+                <li><NavLink to='/dashboard/managereview'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Review</NavLink></li>
             </> :
             <>
                 {
@@ -43,7 +43,7 @@ const SideNavbar = () => {
     }
 
         <div className="divider"></div>
-        <li><NavLink to='/'><IoHome />Home</NavLink></li>
+        <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}><IoHome />Home</NavLink></li>
     </>
     return (
         <div className="drawer lg:drawer-open">
