@@ -17,6 +17,7 @@ import ModeratorProfile from "../Page/ModeratorProfile/ModeratorProfile";
 import ManageScholarship from "../Page/ManageScholarship/ManageScholarship";
 import ManageApplication from './../Page/ManageApplication/ManageApplication';
 import ManageReview from "../Page/ManageReview/ManageReview";
+import ScholarshipDetails from "../Page/ScholarshipDetails/ScholarshipDetails";
 
 
 
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/allscholarship',
-                element: <AllScholarship></AllScholarship>
+                element: <PrivateRoute><AllScholarship></AllScholarship></PrivateRoute>
             },
             {
                 path: '/login',
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/scholarship/:id',
+                element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/scholarships/${params.id}`)
             }
         ],
     },

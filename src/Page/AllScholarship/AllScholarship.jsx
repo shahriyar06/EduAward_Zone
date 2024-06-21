@@ -5,6 +5,7 @@ import { IoCalendarNumberOutline } from "react-icons/io5";
 import { IoMdStarOutline } from "react-icons/io";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const AllScholarship = () => {
@@ -21,8 +22,8 @@ const AllScholarship = () => {
 
     const filteredScholar = scholarships.filter(scholar => {
         return scholar.scholarshipname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        scholar.universityname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        scholar.degree.toLowerCase().includes(searchQuery.toLowerCase())
+            scholar.universityname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            scholar.degree.toLowerCase().includes(searchQuery.toLowerCase())
     });
 
     return (
@@ -55,7 +56,7 @@ const AllScholarship = () => {
                                 <h1 className="flex items-center gap-2"><IoMdStarOutline className="size-7" />Rating Average</h1>
                             </div>
                             <div className="card-actions">
-                                <button className="btn btn-primary text-lg">Details</button>
+                                <Link to={`/scholarship/${scolar._id}`} className="btn btn-primary">Details</Link>
                             </div>
                         </div>
                     </div>)

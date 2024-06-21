@@ -2,16 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import { IoMdStarOutline } from "react-icons/io";
 import { IoCalendarNumberOutline } from "react-icons/io5";
-import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 
 const TopScholarship = () => {
-    const axiosSecure = useAxiosSecure();
+    const axiospublic = useAxiosPublic();
     const { data: scholarships = [] } = useQuery({
         queryKey: ['scholarships'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/scholarships');
+            const res = await axiospublic.get('/scholarships');
             return res.data;
         }
     });
@@ -53,7 +53,7 @@ const TopScholarship = () => {
                                 <h1 className="flex items-center gap-2"><IoMdStarOutline className="size-7" />Rating Average</h1>
                             </div>
                             <div className="card-actions">
-                                <button className="btn btn-primary text-lg">Details</button>
+                                <Link to={`/scholarship/${scolar._id}`} className="btn btn-primary">Details</Link>
                             </div>
                         </div>
                     </div>)
