@@ -22,6 +22,7 @@ import MyApplication from "../Page/MyApplication/MyApplication";
 import Payment from "../Page/Payment/Payment";
 import ApplyForm from "../Component/ApplyForm/ApplyForm";
 import GiveReview from "../Component/GiveReview/GiveReview";
+import MyReview from "../Page/MyReview/MyReview";
 
 
 
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
             {
                 path: '/scholarship/:id',
                 element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/scholarships/${params.id}`)
+                loader: ({params}) => fetch(`https://eduaward-zone-server.vercel.app/scholarships/${params.id}`)
             },
             {
                 path: '/applies/:id',
@@ -104,7 +105,12 @@ const router = createBrowserRouter([
             {
                 path: 'myapplication/:id',
                 element: <GiveReview></GiveReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/applications/${params.id}`)
+                loader: ({params}) => fetch(`https://eduaward-zone-server.vercel.app/applications/${params.id}`)
+            },
+            {
+                path: 'myreview',
+                element: <MyReview></MyReview>,
+                loader: () => fetch(`http://localhost:5000/reviews`)
             }
         ]
 

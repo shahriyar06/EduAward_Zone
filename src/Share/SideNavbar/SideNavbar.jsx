@@ -33,9 +33,9 @@ const SideNavbar = () => {
                             {/* <li><NavLink to='/dashboard/addscholarship'>Add Scholarship</NavLink></li> */}
                         </> :
                         <>
-                            <li><NavLink to='/dashboard/myprofile' className="items-center"><CgProfile className="text-xl" />My Profile</NavLink></li>
-                            <li><NavLink to='/dashboard/myapplication'>My Application</NavLink></li>
-                            <li><NavLink>My Review</NavLink></li>
+                            <li><NavLink to='/dashboard/myprofile' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C] items-center" : "text-[#2D8D79] text-[20px] items-center"}><CgProfile className="text-xl" />My Profile</NavLink></li>
+                            <li><NavLink to='/dashboard/myapplication' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Application</NavLink></li>
+                            <li><NavLink to='/dashboard/myreview'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Review</NavLink></li>
                         </>
                 }
             </>
