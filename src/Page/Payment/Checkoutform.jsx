@@ -7,7 +7,6 @@ import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import useAxiosPublic from './../../Hook/useAxiosPublic';
 
 const Checkoutform = ({ scholarship }) => {
-    console.log('scholar data',scholarship)
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate();
@@ -15,15 +14,12 @@ const Checkoutform = ({ scholarship }) => {
     const [errorMessage, setErrorMessage] = useState(null);
     const { user } = useContext(AuthContext);
     const ascholarship = scholarship[0]
-    console.log(ascholarship)
 
     //TODO: Use Effect with intent 
 
     const [clientSecret, setClientSecret] = useState('');
     const [transactionsId, setTransactionId] = useState('')
-    //    const [cart,refetch] = useCart();
     const axiosPublic = useAxiosPublic();
-    //    const totalPrice = cart?.reduce((total,item)=>total+item.price,0)
     const totalPrice = ascholarship?.applicationfees;
     console.log('Total',totalPrice)
 

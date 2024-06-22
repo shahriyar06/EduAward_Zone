@@ -4,10 +4,13 @@ import { FaPen, FaTimesCircle } from "react-icons/fa";
 import { BiSolidDetail } from "react-icons/bi";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
+import { useContext } from "react";
 
 
 const MyApplication = () => {
     const axiosSecure = useAxiosSecure();
+    const { user } = useContext(AuthContext)
     const { data: applications = [], refetch } = useQuery({
         queryKey: ['applications'],
         queryFn: async () => {
@@ -15,6 +18,9 @@ const MyApplication = () => {
             return res.data;
         }
     });
+    
+    
+    const aapplications = applications.filter(s => s.email === user.email)
 
     const handleDelete = (scholar) => {
         Swal.fire({
@@ -32,7 +38,7 @@ const MyApplication = () => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: `${applications.scholarshipname} has been deleted.`,
+                                text: `${aapplications.scholarshipname} has been deleted.`,
                                 icon: "success"
                             });
                             refetch();
@@ -72,7 +78,7 @@ const MyApplication = () => {
                         </thead>
                         <tbody>
                             {
-                                applications.map((scholar, index) =>
+                                aapplications.map((scholar, index) =>
                                     <tr className="hover  text-lg " key={scholar._id}>
                                 <th>{index+1}</th>
                                 <th>{scholar.universityname}</th>

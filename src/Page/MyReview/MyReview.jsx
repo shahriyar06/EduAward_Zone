@@ -1,18 +1,54 @@
 import { FaPen, FaTimesCircle } from "react-icons/fa";
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
+import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
 
 
 const MyReview = () => {
-    const myreviews = useLoaderData();
+    const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext)
-    const amyreviews = myreviews.filter(s => s.email === user.email)
+    const { data: myreviews = [], refetch } = useQuery({
+        queryKey: ['reviews'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/reviews');
+            return res.data;
+        }
+    });
+    const amyreviews = myreviews.filter(s => s.email === user.email);
+
+    const handleDelete = (review) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            console.log(review._id)
+            if (result.isConfirmed) {
+                axiosPublic.delete(`/reviews/${review._id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: `${review.scholarshipname} has been deleted.`,
+                                icon: "success"
+                            });
+                            refetch();
+                        }
+                    });
+            }
+        });
+    };
     return (
         <div>
             <div className="text-center mt-5">
                 <div className="divider"></div>
-                <h1 className="text-5xl font-semibold">My Applies</h1>
+                <h1 className="text-5xl font-semibold">My Review</h1>
                 <div className="divider"></div>
             </div>
             <div>
@@ -42,8 +78,7 @@ const MyReview = () => {
                                 <th>{review.Reviewdate.slice(0,10)}</th>
                                 <th>{review.Ratingpoint}</th>
                                 <th><button className="btn btn-outline btn-accent"><FaPen className="size-6"/></button></th>
-                                <th><button className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th>
-                                {/* <th><button onClick={() => handleDelete(scholar)}  className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th> */}
+                                <th><button onClick={() => handleDelete(review)}  className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th>
                             </tr>
                                 )
                             }
