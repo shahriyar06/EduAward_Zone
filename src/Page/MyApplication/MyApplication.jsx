@@ -26,7 +26,7 @@ const MyApplication = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/scholarships/${scholar._id}`)
+                axiosSecure.delete(`/applications/${scholar._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
