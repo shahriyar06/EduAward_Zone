@@ -1,8 +1,23 @@
-# React + Vite
+# EduAward Zone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Links :
+- [EduAward Zone](https://edu-award-zone.web.app/) 
 
-Currently, two official plugins are available:
+## Key Feature
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **User Roles Management:** Support for user, admin, and moderator roles with role-based dashboard access and functionality.
+2. **Responsive Design:** Fully responsive design for mobile, tablet, and desktop views, including the dashboard.
+3. **Authentication:** Email/password-based authentication with validation and at least one social login option.
+4. **CRUD Operations:** User-friendly CRUD operations with toast notifications for success and errors.
+5. **Scholarship Search and Apply:** Comprehensive search functionality and seamless scholarship application process including payment gateway integration.
+6. **Review System:** Detailed review system for scholarships with user reviews displayed in a slider/carousel.
+7. **Admin and Moderator Features:** Admin and moderator dashboards with advanced features like managing scholarships, reviews, and applications.
+8. **Environment Variables:** Securely managed Firebase config keys and MongoDB credentials using environment variables.
+9. **GitHub Commits:** Minimum of 20 notable client-side commits and 12 server-side commits to ensure development transparency.
+10. **Documentation:** Detailed readme.md file with website information, admin credentials, live site URL, and key features listed in bullet points.
+
+
+My Assignment Variant Is: Assignment12_category_0021
+
+Admin Email : hridoy1@gmail.com
+admin Password : 1234Aa
