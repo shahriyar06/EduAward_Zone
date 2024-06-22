@@ -102,7 +102,7 @@ const Checkoutform = ({ scholarship }) => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    navigate(`/scholarship/${ascholarship._id}`)
+                    navigate(`/applies/${ascholarship._id}`)
                 }
             }
         }

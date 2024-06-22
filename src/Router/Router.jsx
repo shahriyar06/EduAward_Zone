@@ -20,6 +20,7 @@ import ManageReview from "../Page/ManageReview/ManageReview";
 import ScholarshipDetails from "../Page/ScholarshipDetails/ScholarshipDetails";
 import MyApplication from "../Page/MyApplication/MyApplication";
 import Payment from "../Page/Payment/Payment";
+import ApplyForm from "../Component/ApplyForm/ApplyForm";
 
 
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/scholarship/:id',
                 element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/scholarships/${params.id}`)
+            },
+            {
+                path: '/applies/:id',
+                element: <ApplyForm></ApplyForm>
             }
         ],
     },

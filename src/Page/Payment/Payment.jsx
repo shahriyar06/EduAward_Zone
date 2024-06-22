@@ -10,7 +10,6 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gatway_PK);
 const Payment = () => {
     const {id} = useParams();
-    console.log(id)
     const axiosSecure = useAxiosSecure();
     const { data: scholarships = [] , isLoading} = useQuery({
         queryKey: ['scholarships'],
@@ -22,9 +21,7 @@ const Payment = () => {
     if(isLoading){
         <p>now</p>
     }
-    console.log(scholarships)
     const scholarship = scholarships.filter(s => s._id === id)
-    console.log(scholarship)
     
     
     return (
