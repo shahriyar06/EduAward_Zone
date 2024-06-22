@@ -12,35 +12,34 @@ const SideNavbar = () => {
     const [isModerator] = useModerator();
     const { user } = useContext(AuthContext)
 
-    const sidenavbar = <>{
-        isAdmin ?
-            <>
-                <li><NavLink to='/dashboard/adminprofile' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}><CgProfile className="text-xl" />Admin Profile</NavLink></li>
-                <li><NavLink to='/dashboard/addscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Add Scholarship</NavLink></li>
-                <li><NavLink to='/dashboard/managesholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Scholarship</NavLink></li>
-                <li><NavLink to='/dashboard/manageapplication'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Applied Application</NavLink></li>
-                <li><NavLink to='/dashboard/allusers' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Users</NavLink></li>
-                <li><NavLink to='/dashboard/managereview'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Review</NavLink></li>
-            </> :
-            <>
-                {
-                    isModerator ?
-                        <>
-                            {/* <li><NavLink to='/dashboard/moderatorprofile'>My Profile</NavLink></li> */}
-                            <li><NavLink>Manage Scholarships</NavLink></li>
-                            <li><NavLink>All Reviews</NavLink></li>
-                            <li><NavLink>All applied Scholarship</NavLink></li>
-                            {/* <li><NavLink to='/dashboard/addscholarship'>Add Scholarship</NavLink></li> */}
-                        </> :
-                        <>
-                            <li><NavLink to='/dashboard/myprofile' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C] items-center" : "text-[#2D8D79] text-[20px] items-center"}><CgProfile className="text-xl" />My Profile</NavLink></li>
-                            <li><NavLink to='/dashboard/myapplication' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Application</NavLink></li>
-                            <li><NavLink to='/dashboard/myreview'className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Review</NavLink></li>
-                        </>
-                }
-            </>
+    const sidenavbar = <>
+        <li><NavLink to='/dashboard/myprofile' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C] items-center" : "text-[#2D8D79] text-[20px] items-center"}><CgProfile className="text-xl" />My Profile</NavLink></li>
+        {
+            isAdmin ?
+                <>
+                    <li><NavLink to='/dashboard/addscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Add Scholarship</NavLink></li>
+                    <li><NavLink to='/dashboard/managesholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Scholarship</NavLink></li>
+                    <li><NavLink to='/dashboard/manageapplication' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Applied Application</NavLink></li>
+                    <li><NavLink to='/dashboard/allusers' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Users</NavLink></li>
+                    <li><NavLink to='/dashboard/managereview' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Review</NavLink></li>
+                </> :
+                <>
+                    {
+                        isModerator ?
+                            <>
+                                <li><NavLink to='/dashboard/managesholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Scholarships</NavLink></li>
+                                <li><NavLink className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>All Reviews</NavLink></li>
+                                <li><NavLink className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"} to='/dashboard/manageapplication'>All applied Scholarship</NavLink></li>
+                                <li><NavLink to='/dashboard/addscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Add Scholarship</NavLink></li>
+                            </> :
+                            <>
+                                <li><NavLink to='/dashboard/myapplication' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Application</NavLink></li>
+                                <li><NavLink to='/dashboard/myreview' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>My Review</NavLink></li>
+                            </>
+                    }
+                </>
 
-    }
+        }
 
         <div className="divider"></div>
         <li><NavLink to='/' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}><IoHome />Home</NavLink></li>

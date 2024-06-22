@@ -13,7 +13,6 @@ import PrivateRoute from "../Page/PrivateRoute/PrivateRoute";
 import AddScholarship from "../Page/AddScholarship/AddScholarship";
 import AllUser from './../Page/AllUser/AllUser';
 import AdminRoute from "../Page/AdminRoute/AdminRoute";
-import ModeratorProfile from "../Page/ModeratorProfile/ModeratorProfile";
 import ManageScholarship from "../Page/ManageScholarship/ManageScholarship";
 import ManageApplication from './../Page/ManageApplication/ManageApplication';
 import ManageReview from "../Page/ManageReview/ManageReview";
@@ -69,7 +68,7 @@ const router = createBrowserRouter([
         children: [
             // Admin route
             {
-                path: 'adminprofile',
+                path: 'myprofile',
                 element: <AdminProfile></AdminProfile>
             },
             {
@@ -93,10 +92,7 @@ const router = createBrowserRouter([
                 element: <ManageReview></ManageReview>
             },
             // Moderator route
-            {
-                path: 'moderatorprofile',
-                element: <ModeratorProfile></ModeratorProfile>
-            },
+            
             // user route
             {
                 path: 'myapplication',
@@ -110,7 +106,6 @@ const router = createBrowserRouter([
             {
                 path: 'myreview',
                 element: <MyReview></MyReview>
-                // loader: () => fetch(`http://localhost:5000/reviews`)
             }
         ]
 

@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hook/useAxiosSecure";
 import { FaTimesCircle, FaPen } from "react-icons/fa";
 import { BiSolidDetail } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const ManageScholarship = () => {
@@ -77,7 +78,7 @@ const ManageScholarship = () => {
                                 <th>{scholar.subjectcategory}</th>
                                 <th>{scholar.degree}</th>
                                 <th>{scholar.applicationfees}</th>
-                                <th><button className="btn border-[#4F8EB6] text-[#FFFFFF] bg-[#4F8EB6] hover:bg-[#FFFFFF] hover:text-[#4F8EB6]"><BiSolidDetail className="size-8"/></button></th>
+                                <th><Link to={`/scholarship/${scholar._id}`}><button  className="btn border-[#4F8EB6] text-[#FFFFFF] bg-[#4F8EB6] hover:bg-[#FFFFFF] hover:text-[#4F8EB6]"><BiSolidDetail className="size-8"/></button></Link></th>
                                 <th><button className="btn btn-outline btn-accent"><FaPen className="size-6"/></button></th>
                                 <th><button onClick={() => handleDelete(scholar)}  className="text-[#D2093C] text-center"><FaTimesCircle className="size-10"/></button></th>
                             </tr>
