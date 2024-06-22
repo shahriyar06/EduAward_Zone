@@ -61,7 +61,6 @@ const MenuLink = () => {
                                         </div>
                                     </summary>
                                     <ul className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-32  md:text-lg absolute z-10">
-                                        <li className="hover:text-[#D2093C]"><Link to={'/profile'}>Profile</Link></li>
                                         <li className="hover:text-[#D2093C]" onClick={() => handlesociallogout(signout)}><Link>Sign Out</Link></li>
                                     </ul>
                                     <ToastContainer />
@@ -70,8 +69,8 @@ const MenuLink = () => {
                             </div>
                             :
                             <div className="relative">
-                                <Link to='/login' className="mr-3">Sign In</Link>
-                                <Link to='/signup'>Sign Up</Link>
+                                <Link to='/login' className="mr-3 btn btn-outline text-[#D2093C] hover:text-[#FFFFFF] hover:bg-[#D2093C] hover:border-[#D2093C] text-xl">Sign In</Link>
+                                <Link to='/signup' className="mr-2 btn btn-outline text-[#D2093C] hover:text-[#FFFFFF] hover:bg-[#D2093C] hover:border-[#D2093C] text-xl">Sign Up</Link>
                             </div>
                     }
                 </div>

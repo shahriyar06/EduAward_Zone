@@ -28,7 +28,7 @@ const SideNavbar = () => {
                         isModerator ?
                             <>
                                 <li><NavLink to='/dashboard/managesholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Manage Scholarships</NavLink></li>
-                                <li><NavLink className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>All Reviews</NavLink></li>
+                                <li><NavLink to='/dashboard/managereview' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>All Reviews</NavLink></li>
                                 <li><NavLink className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"} to='/dashboard/manageapplication'>All applied Scholarship</NavLink></li>
                                 <li><NavLink to='/dashboard/addscholarship' className={({ isActive }) => isActive ? "border-[#D2093C] border-b-4 text-[#D2093C]" : "text-[#2D8D79] text-[20px]"}>Add Scholarship</NavLink></li>
                             </> :

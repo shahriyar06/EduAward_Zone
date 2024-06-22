@@ -68,7 +68,7 @@ const ApplyForm = () => {
                 worldrank: ascholarship.worldrank,  
                 ScholarshipPostDate: ascholarship.ScholarshipPostDate,
                 ApplicationDeadline: ascholarship.ApplicationDeadline,
-                status: 'pending'
+                status: 'Pending'
 
             }
             const applicationRes = await axiosSecure.post('/applications', application);
