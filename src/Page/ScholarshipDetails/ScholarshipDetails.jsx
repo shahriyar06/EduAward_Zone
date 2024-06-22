@@ -41,7 +41,7 @@ const ScholarshipDetails = () => {
                             </div>
                         </div>
                         <div className="text-end pr-5">
-                            <Link className="btn btn-accent text-xl text-white"><button >Apply</button></Link>
+                            <Link to={`/payment/${scholarship._id}`} className="btn btn-accent text-xl text-white"><button>Apply</button></Link>
                             {/* <Link to={`/applyedjob/${id}`} className="btn btn-accent text-xl text-white"><button onClick={handleApplyClick}>Apply</button></Link> */}
                         </div>
                     </div>

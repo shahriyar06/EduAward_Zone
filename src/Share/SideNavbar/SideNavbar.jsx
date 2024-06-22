@@ -33,8 +33,8 @@ const SideNavbar = () => {
                             {/* <li><NavLink to='/dashboard/addscholarship'>Add Scholarship</NavLink></li> */}
                         </> :
                         <>
-                            <li><NavLink to='/dashboard' className="items-center"><CgProfile className="text-xl" />My Profile</NavLink></li>
-                            <li><NavLink>My Scholarship</NavLink></li>
+                            <li><NavLink to='/dashboard/myprofile' className="items-center"><CgProfile className="text-xl" />My Profile</NavLink></li>
+                            <li><NavLink to='/dashboard/myapplication'>My Application</NavLink></li>
                             <li><NavLink>My Review</NavLink></li>
                         </>
                 }

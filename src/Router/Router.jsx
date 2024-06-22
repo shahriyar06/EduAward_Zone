@@ -18,6 +18,8 @@ import ManageScholarship from "../Page/ManageScholarship/ManageScholarship";
 import ManageApplication from './../Page/ManageApplication/ManageApplication';
 import ManageReview from "../Page/ManageReview/ManageReview";
 import ScholarshipDetails from "../Page/ScholarshipDetails/ScholarshipDetails";
+import MyApplication from "../Page/MyApplication/MyApplication";
+import Payment from "../Page/Payment/Payment";
 
 
 
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/payment/:id',
+                element: <Payment></Payment>
             },
             {
                 path: '/scholarship/:id',
@@ -83,6 +89,11 @@ const router = createBrowserRouter([
             {
                 path: 'moderatorprofile',
                 element: <ModeratorProfile></ModeratorProfile>
+            },
+            // user route
+            {
+                path: 'myapplication',
+                element: <MyApplication></MyApplication>
             }
         ]
 
