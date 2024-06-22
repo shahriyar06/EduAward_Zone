@@ -57,7 +57,18 @@ const ApplyForm = () => {
                 country: data.country,
                 Studygap: data.Studygap,
                 village: data.village,
-                resentDate: startDate
+                resentDate: startDate,
+                Tuitionfees: ascholarship.Tuitionfees,
+                applicationfees: ascholarship.applicationfees,
+                scholarshipname: ascholarship.scholarshipname,
+                servicecharge: ascholarship.servicecharge,
+                universitycity: ascholarship.universitycity,
+                universitycountry: ascholarship.universitycountry,
+                universityimage: ascholarship.universityimage,
+                worldrank: ascholarship.worldrank,  
+                ScholarshipPostDate: ascholarship.ScholarshipPostDate,
+                ApplicationDeadline: ascholarship.ApplicationDeadline,
+                status: 'pending'
 
             }
             const applicationRes = await axiosSecure.post('/applications', application);
