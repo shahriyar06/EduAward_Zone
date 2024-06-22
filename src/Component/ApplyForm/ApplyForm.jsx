@@ -95,8 +95,7 @@ const ApplyForm = () => {
             <div className="bg-cover bg-center lg:p-20  md:p-10 p-4" style={{ backgroundImage: "url('https://i.ibb.co/CbL19DJ/annie-spratt-Qckxruozj-Rg-unsplash.jpg')" }}>
                 <div className="card card-side glass flex flex-col md:11/12  mx-auto p-12">
                     <div>
-                        <h1 className="text-center lg:text-5xl text-3xl font-bold text-[#a7542dc7]">Add Scholarships</h1>
-                        <p className="text-center my-5 text-xl w-11/12 mx-auto">Post and manage scholarships easily with our comprehensive scholarship management system tailored for universities.</p>
+                        <h1 className="text-center lg:text-5xl text-3xl font-bold text-[#a7542dc7]">Apply</h1>
                     </div>
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)} className="">

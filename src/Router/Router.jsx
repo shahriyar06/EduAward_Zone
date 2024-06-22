@@ -21,6 +21,7 @@ import ScholarshipDetails from "../Page/ScholarshipDetails/ScholarshipDetails";
 import MyApplication from "../Page/MyApplication/MyApplication";
 import Payment from "../Page/Payment/Payment";
 import ApplyForm from "../Component/ApplyForm/ApplyForm";
+import GiveReview from "../Component/GiveReview/GiveReview";
 
 
 
@@ -99,6 +100,11 @@ const router = createBrowserRouter([
             {
                 path: 'myapplication',
                 element: <MyApplication></MyApplication>
+            },
+            {
+                path: 'myapplication/:id',
+                element: <GiveReview></GiveReview>,
+                loader: ({params}) => fetch(`http://localhost:5000/applications/${params.id}`)
             }
         ]
 
