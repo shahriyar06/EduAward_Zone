@@ -64,20 +64,21 @@ const FirebaseProvider = ({children}) => {
               setuser(user)
               if(user){
                 const userinfo = {email: user.email}
-                axiosPublic.post('jwt', userinfo)
+                axiosPublic.post('/jwt', userinfo)
                 .then(res =>{
                     if(res.data.token){
                         localStorage.setItem('access-token', res.data.token);
-                        setloading(false)
+                        // setloading(false)
                     }
                 })
               }
               else{
                 // TODO : Remove token
                 localStorage.removeItem('access-token');
-                setloading(false)
+                // setloading(false)
               }
-              
+              setloading(false)
+
           });
           return () => unsubscribe();
     },[user, axiosPublic])

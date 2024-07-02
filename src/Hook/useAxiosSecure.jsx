@@ -5,7 +5,7 @@ import { AuthContext } from "../Page/FirebaseProvider/FirebaseProvider";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'https://eduaward-zone-server.vercel.app'
+    baseURL: 'http://localhost:5000'
 })
 
 const useAxiosSecure = () => {

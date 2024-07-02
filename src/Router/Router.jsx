@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: '/scholarship/:id',
                 element: <PrivateRoute><ScholarshipDetails></ScholarshipDetails></PrivateRoute>,
-                loader: ({params}) => fetch(`https://eduaward-zone-server.vercel.app/scholarships/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/scholarships/${params.id}`)
             },
             {
                 path: '/applies/:id',
@@ -101,7 +101,7 @@ const router = createBrowserRouter([
             {
                 path: 'myapplication/:id',
                 element: <GiveReview></GiveReview>,
-                loader: ({params}) => fetch(`https://eduaward-zone-server.vercel.app/applications/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/applications/${params.id}`)
             },
             {
                 path: 'myreview',

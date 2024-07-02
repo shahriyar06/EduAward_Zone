@@ -16,14 +16,14 @@ const TopScholarship = () => {
         }
     });
 
-    const sortedScholarships = scholarships.sort((a, b) => {
+    const sortedScholarships = Array.isArray(scholarships) ? scholarships.sort((a, b) => {
         // Sort by application fees (ascending) and post date (descending)
         if (a.applicationfees !== b.applicationfees) {
             return a.applicationfees - b.applicationfees;
         } else {
             return new Date(b.ScholarshipPostDate) - new Date(a.ScholarshipPostDate);
         }
-    });
+    }) : [];
 
     const topScholarships = sortedScholarships.slice(0, 6);
 
