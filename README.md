@@ -43,4 +43,4 @@ admin Password : 1234Aa
 - [React-icon](https://www.npmjs.com/package/react-icons)
 - [Swiper](https://swiperjs.com/get-started)
 - [Strip](https://docs.stripe.com/get-started)
-- [JWT](https://jwt.io/)
+- [JWT](https://jwt.io/) for backend(server site).
