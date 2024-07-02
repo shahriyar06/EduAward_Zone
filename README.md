@@ -2,6 +2,7 @@
 
 ## Live Links :
 - [EduAward Zone](https://edu-award-zone.web.app/) 
+- [Server Repository](https://github.com/shahriyar06/EduAward_Zone_Server.git) 
 
 ## Key Feature
 
@@ -21,3 +22,24 @@ My Assignment Variant Is: Assignment12_category_0021
 
 Admin Email : hridoy1@gmail.com
 admin Password : 1234Aa
+
+
+
+## Getting Started
+
+## Prerequisites
+- React 
+- React-router dom
+- Firebase Authentication
+- Node Js
+- Express Js 
+
+
+## Installation
+
+- [React-Router Dom](https://reactrouter.com/en/main/start/tutorial)
+- [Tailwind](https://tailwindcss.com/docs/guides/vite)
+- [Firebase](https://firebase.google.com/)
+- [React-icon](https://www.npmjs.com/package/react-icons)
+- [Swiper](https://swiperjs.com/get-started)
+- [Strip](https://docs.stripe.com/get-started)
