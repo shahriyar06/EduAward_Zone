@@ -14,8 +14,7 @@
 6. **Review System:** Detailed review system for scholarships with user reviews displayed in a slider/carousel.
 7. **Admin and Moderator Features:** Admin and moderator dashboards with advanced features like managing scholarships, reviews, and applications.
 8. **Environment Variables:** Securely managed Firebase config keys and MongoDB credentials using environment variables.
-9. **GitHub Commits:** Minimum of 20 notable client-side commits and 12 server-side commits to ensure development transparency.
-10. **Documentation:** Detailed readme.md file with website information, admin credentials, live site URL, and key features listed in bullet points.
+9. **Documentation:** Detailed readme.md file with website information, admin credentials, live site URL, and key features listed in bullet points.
 
 
 My Assignment Variant Is: Assignment12_category_0021
